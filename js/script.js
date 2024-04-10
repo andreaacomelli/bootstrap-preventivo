@@ -1,13 +1,7 @@
-const dati = [ //creazione oggetto dati con valori undefined perché ancora non disponibili
-	{
-		nome: undefined,
-		cognome: undefined,
-		email: undefined,
-    servizio: undefined,
-    text: undefined,
-    codice: undefined,
-	},
-]
+const dati = [{}] //creazione oggetto dati
+
+const codiciValidi = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+
 
 function datiUtente(e) {
 	//disabilito la propagazione del submit
@@ -19,6 +13,12 @@ function datiUtente(e) {
   const servizio = document.getElementById('InputTipologia').value 
   const text = document.getElementById('inputText').value
   const codice = document.getElementById('InputCodice').value 
+  
+
+  if (!codiciValidi.includes(codice) && codice != '') {
+    alert('Codice non valido!');
+    return; // Interrompe l'esecuzione della funzione
+  }
 
   //salvo gli input in un nuovo oggetto
 	const nuoviDati = {
@@ -37,7 +37,7 @@ function datiUtente(e) {
   return preventivo;
 }
 
-function calcoloPreventivo(servizio, codice){
+function calcoloPreventivo(servizio, codice){ //funzione per calcolare il preventivo
   let nomeServizio;
   if (servizio === "1") {
     nomeServizio = "frontend";
@@ -58,7 +58,7 @@ function calcoloPreventivo(servizio, codice){
     preventivo = 33.60 * 10;
   }
   
-  if(codice == "YHDNU32" || "JANJC63" || "PWKCN25" || "SJDPO96" || "POCIE24"){
+  if(codice == "YHDNU32" || "JANJC63" || "PWKCN25" || "SJDPO96" || "POCIE24"){ //calcolo sconto 
     preventivo = (preventivo * 25)/100; 
   }
 
@@ -67,5 +67,3 @@ function calcoloPreventivo(servizio, codice){
 
 const form = document.getElementById('form');
 form.addEventListener('submit', datiUtente, calcoloPreventivo);
-
-console.log(dati);
