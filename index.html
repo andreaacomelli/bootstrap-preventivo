@@ -34,22 +34,23 @@
             <div class="container">
               <h2 class="">Richiesta Preventivo</h2>
               <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
+              <p>I dati contrassegnati (*) sono obbligatori</p>
             </div>
             <form class="form py-3 px-5" id="form"> <!--form-->
               <div class="mb-3 px-5">
-                <label for="inputNome" class="form-label">Nome</label>
+                <label for="inputNome" class="form-label">Nome *</label>
                 <input type="nome" class="form-control" id="inputNome">
               </div>
               <div class="mb-3 px-5">
-                <label for="inputCognome" class="form-label">Cognome</label>
+                <label for="inputCognome" class="form-label">Cognome *</label>
                 <input type="cognome" class="form-control" id="inputCognome">
               </div>
               <div class="mb-3 px-5">
-                <label for="inputEmail" class="form-label">Email</label>
+                <label for="inputEmail" class="form-label">Email *</label>
                 <input type="email" class="form-control" id="inputEmail">
               </div>
               <div class="col-auto mb-3 px-5"> <!--Dropdown menu-->
-                <label class="inputTipologia" for="autoSizingSelect">Tipo di Lavoro</label>
+                <label class="inputTipologia" for="autoSizingSelect">Tipo di Lavoro *</label>
                 <select class="form-select" id="InputTipologia">
                   <option selected>Seleziona il tipo di lavoro</option>
                   <option value="1">Sviluppo frontend</option>
@@ -62,12 +63,12 @@
                 <textarea class="form-control" id="inputText" rows="3"></textarea>
               </div>
               <div class="mb-3 px-5"> <!--Spazio Codice Promozionale-->
-                <label for="inputCodice" class="form-label">Codice Promozionale (Opzionale)</label>
+                <label for="inputCodice" class="form-label">Codice Promozionale</label>
                 <input type="codice" class="form-control" id="InputCodice">
               </div>
               <div class="form-check mb-3 px-5"> <!--CheckBox-->
-                <input type="checkbox" class="form-check-input" id="checkbox">
-                <label class="form-check-label" for="exampleCheck1">Accetto la Privacy Policy</label>
+                <input type="checkbox" class="form-check-input" id="checkbox" required>
+                <label class="form-check-label" for="exampleCheck1">Accetto la Privacy Policy *</label>
               </div>
               <button type="submit" class="btn btn-primary mb-3 px-5" id="submit">Calcola Preventivo</button> <!--Submit Calcolo Preventivo-->
             </form>
