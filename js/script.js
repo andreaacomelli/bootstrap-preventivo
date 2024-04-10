@@ -33,11 +33,11 @@ function datiUtente(e) {
   dati.push(nuoviDati); //pusho gli input nell'oggetto dati
 
   const preventivo = calcoloPreventivo(servizio);
-  document.getElementById('PrezzoFinale').innerHTML = preventivo.toFixed() + " &euro;";
+  document.getElementById('PrezzoFinale').innerHTML = preventivo.toFixed(2) + " &euro;";
   return preventivo;
 }
 
-function calcoloPreventivo(servizio){
+function calcoloPreventivo(servizio, codice){
   let nomeServizio;
   if (servizio === "1") {
     nomeServizio = "frontend";
@@ -57,7 +57,11 @@ function calcoloPreventivo(servizio){
   else if(nomeServizio =="analisi"){
     preventivo = 33.60 * 10;
   }
-  console.log(preventivo)
+  
+  if(codice == "YHDNU32" || "JANJC63" || "PWKCN25" || "SJDPO96" || "POCIE24"){
+    preventivo = (preventivo * 25)/100; 
+  }
+
   return preventivo;
 }
 
